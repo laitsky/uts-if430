@@ -2,6 +2,7 @@
 require_once 'header.php';
 
 if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses halaman ini!</h1></div>");
+
 if (isset($_GET['view'])) {
     $view = sanitize_string($_GET['view']);
     if ($view == $user) $name = "Your";
@@ -9,7 +10,7 @@ if (isset($_GET['view'])) {
 
     echo "<h3>Profil $name</h3>";
     show_profile($view);
-    echo "<button><a href='messages.php?view=$view'>Lihat pesan $name</a></button>";
+    echo "<button><a href='messages.php?view=$view'>Lihat pesan</a></button>";
 }
 
 if (isset($_GET['add'])) {
@@ -49,5 +50,6 @@ for ($i = 0; $i < $num; ++$i) {
     if (!$t1) echo " [<a href='members.php?add=" . $row['user'] . "'>$follow</a>]";
     else      echo " [<a href='members.php?remove=" . $row['user'] . "'>drop</a>]";
 
-    echo "</ul>";
+
 }
+echo "</ul>";
