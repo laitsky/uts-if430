@@ -2,23 +2,18 @@
 require_once 'header.php';
 $error = $user = $pass = "";
 
-if (isset($_POST['user']))
-{
+if (isset($_POST['user'])) {
     $user = sanitize_string($_POST['user']);
     $pass = sanitize_string($_POST['pass']);
 
     if ($user == "" || $pass == "")
         $error = 'Not all fields were entered';
-    else
-    {
+    else {
         $result = query_my_sql("SELECT user,pass FROM members WHERE user='$user' AND pass='$pass'");
 
-        if ($result->num_rows == 0)
-        {
+        if ($result->num_rows == 0) {
             $error = "Invalid login attempt";
-        }
-        else
-        {
+        } else {
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
             die("<div class='text-center'>You are now logged in. Please
