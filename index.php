@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'header.php';
 
 echo "<div>Selamat datang di projek UTS PemWeb,";

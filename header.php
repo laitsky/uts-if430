@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+error_reporting(0);
 echo <<<_INIT
 <!DOCTYPE html> 
 <html>
