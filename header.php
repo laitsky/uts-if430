@@ -29,35 +29,58 @@ echo <<<_MAIN
 <title>UTS PemWeb IF430 - $userstr </title>
 </head>
 <body>
-<div class="container">
-<section id="header">
-<div id="header-logo">Sosial Media</div>
-<div id="header-username">$userstr</div>
-</section>
-<section id="content">
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<a class="navbar-brand" href="index.php">Sosial Media</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav">
 _MAIN;
 
 if ($loggedin) {
     echo <<<_LOGGEDIN
-<div class="text-center">
-<a href="members.php?view=$user">Home</a>
-<a href="members.php">Members</a>
-<a href="friends.php">Friends</a>
-<a href="messages.php">Messages</a>
-<a href="profile.php">Edit Profile</a>
-<a href="logout.php">Log Out</a>
-</div>
+
+<li class="nav-item">
+<a class="nav-link" href="members.php?view=$user">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="members.php">Members</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="friends.php">Friends</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="messages.php">Messages</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="profile.php">Edit Profile</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="logout.php">Log Out</a>
+</li>
 _LOGGEDIN;
 } else {
     echo <<<_GUEST
-<div class="text-center">
-<a href="index.php">Home</a>
-<a href="signup.php">Sign Up</a>
-<a href="login.php">Log In</a>
-<p>Kamu harus masuk untuk menggunakan aplikasi ini.</p>
-</div>
+
+<li class="nav-item">
+<a class="nav-link" href="signup.php">Sign Up</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="login.php">Log In</a>
+</li>
+
+
 _GUEST;
 
 }
+
+echo <<<_CLOSINGTAG
+</ul>
+</div>
+</nav>
+</div>
+_CLOSINGTAG;
 
 ?>
