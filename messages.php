@@ -87,4 +87,4 @@ if (!$num)
     echo "<br><span class='info'>No messages yet</span><br><br>";
 
 echo "<br><a href='messages.php?view=$view'>Refresh messages</a>";
-echo "</div>";
+echo "</div>"; // penutup tag div container

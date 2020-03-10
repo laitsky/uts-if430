@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-
+echo "<div class='container'>";
 if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses halaman ini!</h1></div>");
 
 if(isset($_GET['view'])) $view = sanitize_string($_GET['view']);
@@ -76,3 +76,4 @@ if (sizeof($following))
 
 if (!$friends) echo "<br>Kamu belum memiliki teman!";
 
+echo "</div>"; // penutup tag div container

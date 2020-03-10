@@ -23,8 +23,17 @@ echo <<<_END
     }
   </script>  
 _END;
+echo "<div class='container'>";
+$error = $user = $pass = $first_name = $birth_date = $gender = "";
 
-$error = $user = $pass = "";
+function has_empty_fields()
+{
+    if ($user = "" || $pass = "" || $first_name || $birth_date || $gender) {
+        return true;
+    }
+    return false;
+}
+
 if (isset($_SESSION['user'])) destroy_session();
 
 if (isset($_POST['user'])) {
@@ -35,16 +44,16 @@ if (isset($_POST['user'])) {
     $gender = sanitize_string($_POST['gender']);
     $pass = sanitize_string($_POST['pass']);
 
-    if ($user == "" || $pass == "")
-        $error = 'Not all fields were entered<br><br>';
+    if (has_empty_fields())
+        $error = 'Masukkan semua data yang diperlukan!<br><br>';
     else {
         $result = query_my_sql("SELECT * FROM members WHERE user='$user'");
 
         if ($result->num_rows)
-            $error = 'That username already exists<br><br>';
+            $error = 'Maaf, username telah dipakai!<br><br>';
         else {
             query_my_sql("INSERT INTO members VALUES('$user', '$first_name', '$last_name', '$birth_date', '$gender', '$pass')");
-            die('<h4>Account created</h4>Please Log in.');
+            die('<h4>Akun telah dibuat</h4>Silakan masuk.');
         }
     }
 }
@@ -54,34 +63,36 @@ echo <<<_END
 <h5>Silakan masukan data anda untuk mendaftar</h5>
 </div>
 <div class="form-group">
-<label for="first_name">First Name</label>
-<input type="text" name="first_name" value="$first_name" maxlength="20">
+<label for="first_name" >Nama Depan</label>
+<input type="text" class="form-control" name="first_name" value="$first_name" maxlength="20">
 </div>
 <div class="form-group">
-<label for="last_name">Last Name</label>
-<input type="text" name="last_name" value="$last_name" maxlength="20">
+<label for="last_name">Nama Belakang (opsional)</label>
+<input type="text" class="form-control" name="last_name" value="$last_name" maxlength="20">
 </div>
 <div class="form-group">
 <label for="user">Username</label>
-<input type="text" name="user" value="$user" onblur="checkUser(this)" maxlength="16">
+<input type="text" class="form-control" name="user" value="$user" onblur="checkUser(this)" maxlength="16">
 <div id="used">&nbsp;</div>
 </div>
 <div class="form-group">
-<label for="birth_date">Birth of Date</label>
-<input type="date" name="birth_date" value="$birth_date">
+<label for="birth_date">Tanggal Lahir</label>
+<input type="date" class="form-control" name="birth_date" value="$birth_date">
 </div>
 <div class="form-group">
-<label for="gender">Gender</label>
-<select name="gender" class="custom-select">
+<label for="gender">Jenis Kelamin</label>
+<select name="gender" class="custom-select" >
 <option selected disabled>Pilih jenis kelamin...</option>
 <option value="L">Laki-laki</option>
 <option value="P">Perempuan</option>
 </select>
 </div>
 <div class="form-group">
-<label for="pass">Password</label>
-<input type="text" name="pass" value="$pass">
+<label for="pass">Kata Sandi</label>
+<input type="password" class="form-control" name="pass" value="$pass">
 </div>
 <button class="btn btn-primary">Daftar</button>
 </form>
 _END;
+
+echo "</div>"; // penutup tag div container
