@@ -33,6 +33,7 @@ if ($view != "")
     show_profile($view);
 
     echo <<<_END
+    <div style="padding-left:1px;">
       <form method='post' action='messages.php?view=$view'>
         <fieldset >
           <legend>Type here to leave a message</legend>
@@ -41,9 +42,10 @@ if ($view != "")
           <input type='radio' name='pm' id='private' value='1'>
           <label for="private">Private</label>
         </fieldset>
-      <textarea name='text'></textarea>
-      <input type='submit' value='Post Message'>
+      <textarea name='text' style="padding-left:600px; padding-bottom:100px;"></textarea><br>
+      <input style="margin-left:660px;" type='submit' value='Post Message'>
     </form><br>
+    </div>
 _END;
 
     date_default_timezone_set('UTC');
