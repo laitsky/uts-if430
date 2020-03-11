@@ -34,8 +34,7 @@ echo <<<_MAIN
 <title>UTS PemWeb IF430 - $userstr </title>
 </head>
 <body>
-<div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <a class="navbar-brand" href="index.php">Sosial Media</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -85,7 +84,6 @@ echo <<<_CLOSINGTAG
 </ul>
 </div>
 </nav>
-</div>
 _CLOSINGTAG;
 
 ?>
