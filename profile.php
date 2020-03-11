@@ -74,10 +74,9 @@ if (isset($_FILES['image']['name'])) {
 show_profile($user);
 
 echo <<<_END
-
-<form method='post' action='profile.php' enctype='multipart/form-data' >
+<form method='post' action='profile.php' enctype='multipart/form-data'>
 <h3>Masukkan atau sunting profil kamu dan gambar unggah gambar profil</h3>
-<textarea name="text" style="padding-left:600px; padding-bottom:100px; margin-left:10px;" autofocus>$text</textarea> <br>
+<textarea name="text">$text</textarea> <br>
 Gambar: <input type="file" name="image" size="14">
 <button class="btn btn-primary">Simpan Profil</button>
 </form>
