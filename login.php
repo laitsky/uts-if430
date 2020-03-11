@@ -18,7 +18,7 @@ if (isset($_POST['user'])) {
                 $error = "You are spammer ! GET OUT";
             } else {
                 $user = sanitize_string($_POST['user']);
-                $pass = sanitize_string($_POST['pass']);
+                $pass = sanitize_string(md5($_POST['pass']));
 
                 if ($user == "" || $pass == "")
                     $error = 'Not all fields were entered';
@@ -41,24 +41,26 @@ if (isset($_POST['user'])) {
 }
 
 echo <<<_END
-<form method='post' action='login.php'>
-<div class="form-group">
-<span>$error</span>
-</div>
-<div class="form-group">
-<label for="user">Username</label>
-<input type="text" class="form-control" name="user" value="$user">
-</div>
-<div class="form-group">
-<label for="pass">Password</label>
-<input type="password" class="form-control" name="pass" value="$pass">
-</div>
-<div class="form-group">
-<div class="g-recaptcha" data-sitekey="6Lfm6t8UAAAAAPGoonYnz7Rmpmq5nOXibNfREfT6">
-</div>
-</div>
-<button class="btn btn-primary">Login</button>
-</form>
+<div class="login">
+    <h1>LOGIN</h1><hr>
+    <form method='post' action='login.php'>
+        <div class="form-group">
+            <label for="user">Username</label>
+            <input type="text" class="form-control" name="user" value="$user">
+        </div>
+        <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" class="form-control" name="pass" value="$pass">
+        </div>
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6Lfm6t8UAAAAAPGoonYnz7Rmpmq5nOXibNfREfT6">
+        </div>
+        <div class="form-group">
+            <span class="error">$error</span>
+        </div>
+        <button class="btn btn-primary btn-block">Login</button>
+    </form>
+</div>  
 _END;
 
 echo "</div>"; // penutup tag div container
