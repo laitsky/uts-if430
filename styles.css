@@ -1,38 +1,3 @@
-.login{
-    width: 350px;
-    border: #CCC solid 1px;
-    background: #f9f9f9;
-    padding: 20px;
-    margin: 20px auto;
-    box-shadow: 0 2px 7px rgba(0,0,0,0.1);
-}
-
-.login h1{
-    font-size: 28px;
-    color: rgb(28, 86, 119);
-    text-align: center;
-}
-
-.error{
-    color: rgb(212, 37, 37);
-    text-align: center;
-}
-
-.signUp{
-    width: 500px;
-    border: #CCC solid 1px;
-    background: #f9f9f9;
-    padding: 20px;
-    margin: 20px auto;
-    box-shadow: 0 2px 7px rgba(0,0,0,0.1);
-}
-
-.signUp h1{
-    font-size: 28px;
-    color: rgb(28, 86, 119);
-    text-align: center;
-}
-
 body{
 	background-color: #f1c40f;
 	-webkit-animation: color 5s ease-in  0s infinite alternate running;
@@ -60,4 +25,43 @@ body{
     55% { background-color: #c17bdd; }
     76% { background-color: #55d8be; }
     100% { background-color: #85f5b4; }
+}
+
+.navbar ul li a:hover {
+    background-color: #b2c5e9;
+    border-radius: 10%;
+}
+.login{
+    width: 31%;
+    border: #CCC solid 1px;
+    background: #f9f9f9;
+    padding: 1em;
+    margin: 3em auto;
+    font-size: 1.2vw;
+}
+
+.login h1{
+    font-size: 3vw;
+    color: rgb(28, 86, 119);
+    text-align: center;
+}
+
+.error{
+    color: rgb(212, 37, 37);
+    text-align: center;
+}
+
+.signUp{
+    width: 35%;
+    border: #CCC solid 1px;
+    background: #f9f9f9;
+    padding: 1em;
+    margin: 2em auto;
+    font-size: 1.2vw;
+}
+
+.signUp h1{
+    font-size: 3vw;
+    color: rgb(28, 86, 119);
+    text-align: center;
 }
