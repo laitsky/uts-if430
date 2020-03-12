@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-
+echo "<div class='container'>";
 if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses halaman ini!</h1></div>");
 
 echo "<h3>Profil Kamu</h3>";
@@ -81,3 +81,5 @@ Gambar: <input type="file" name="image" size="14">
 <button class="btn btn-primary">Simpan Profil</button>
 </form>
 _END;
+
+echo "</div>"; // penutup tag div container

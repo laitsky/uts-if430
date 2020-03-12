@@ -10,5 +10,6 @@ echo <<<_END
 <section id="footer">
 <footer><h4>Ini adalah projek uts pemweb</h4></footer>
 </section>
-</div>
+
 _END;
+echo "</div>"; // penutup tag div container

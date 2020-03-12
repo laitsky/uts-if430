@@ -14,7 +14,7 @@ create_table('members',
                 last_name VARCHAR(20),
                 birth_date DATE,
                 gender CHAR(1),
-                pass VARCHAR(16), 
+                pass VARCHAR(50), 
                 INDEX(user(6))');
 create_table('messages',
     'id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

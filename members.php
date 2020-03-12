@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-
+echo "<div class='container'>";
 if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses halaman ini!</h1></div>");
 
 if (isset($_GET['view'])) {
@@ -53,3 +53,5 @@ for ($i = 0; $i < $num; ++$i) {
 
 }
 echo "</ul>";
+
+echo "</div>"; // penutup tag div container
