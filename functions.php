@@ -1,8 +1,8 @@
 <?php
-$dbhost  = 'localhost';
-$dbname  = 'media_sosial_db';
-$dbuser  = 'root';
-$dbpass  = '';
+$dbhost = 'localhost';
+$dbname = 'media_sosial_db';
+$dbuser = 'root';
+$dbpass = '';
 
 $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 if ($connection->connect_error) die("Fatal Error");
@@ -23,10 +23,10 @@ function query_my_sql($query)
 
 function destroy_session()
 {
-    $_SESSION=array();
+    $_SESSION = array();
 
     if (session_id() != "" || isset($_COOKIE[session_name()]))
-        setcookie(session_name(), '', time()-2592000, '/');
+        setcookie(session_name(), '', time() - 2592000, '/');
 
     session_destroy();
 }
@@ -48,11 +48,10 @@ function show_profile($user)
 
     $result = query_my_sql("SELECT * FROM profiles WHERE user='$user'");
 
-    if ($result->num_rows)
-    {
+    if ($result->num_rows) {
         $row = $result->fetch_array(MYSQLI_ASSOC);
         echo stripslashes($row['text']) . "<br style='clear:left;'><br>";
-    }
-    else echo "<p>Nothing to see here, yet</p><br>";
+    } else echo "<p>Nothing to see here, yet</p><br>";
 }
+
 ?>

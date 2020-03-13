@@ -12,8 +12,8 @@ if (isset($_POST['text'])) {
     $text = preg_replace('/\s\s+/', ' ', $text);
 
     if ($result->num_rows)
-        query_my_sql("UPDATE profiles SET text='$text' WHERE user='$user'");
-    else query_my_sql("INSERT INTO profiles VALUES('$user', $'text')");
+        query_my_sql("UPDATE profiles SET text='$text' where user='$user'");
+    else query_my_sql("INSERT INTO profiles VALUES('$user', '$text')");
 } else {
     if ($result->num_rows) {
         $row = $result->fetch_array(MYSQLI_ASSOC);

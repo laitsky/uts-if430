@@ -26,13 +26,12 @@ if (isset($_POST['user'])) {
                     $result = query_my_sql("SELECT user,pass FROM members WHERE user='$user' AND pass='$pass'");
 
                     if ($result->num_rows == 0) {
-                        $error = "Invalid login attempt";
+                        $error = "Username atau password yang kamu masukkan salah!";
                     } else {
                         $_SESSION['user'] = $user;
                         $_SESSION['pass'] = $pass;
-                        die("<div class='text-center'>You are now logged in. Please
-                        <a href='members.php?view=$user'>click here</a>
-                        to continue.</div>");
+                        die("<meta http-equiv='refresh' content='0;URL=members.php?view=$user'/>");
+
                     }
                 }
             }
@@ -50,7 +49,7 @@ echo <<<_END
         </div>
         <div class="form-group">
             <label for="pass">Password</label>
-            <input type="password" class="form-control" name="pass" value="$pass">
+            <input type="password" class="form-control" name="pass">
         </div>
         <div class="form-group">
             <div class="g-recaptcha" data-sitekey="6Lfm6t8UAAAAAPGoonYnz7Rmpmq5nOXibNfREfT6">

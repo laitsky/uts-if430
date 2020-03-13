@@ -47,32 +47,32 @@ if ($loggedin) {
     echo <<<_LOGGEDIN
 
 <li class="nav-item">
-<a class="nav-link" href="members.php?view=$user">Home</a>
+<a class="nav-link" href="members.php?view=$user"><i class="las la-home"></i>Home</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="members.php">Members</a>
+<a class="nav-link" href="members.php"><i class="las la-users"></i>Members</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="friends.php">Friends</a>
+<a class="nav-link" href="friends.php"><i class="las la-user-friends"></i>Friends</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="messages.php">Messages</a>
+<a class="nav-link" href="messages.php"><i class="las la-stream"></i>Lini Masa</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="profile.php">Edit Profile</a>
+<a class="nav-link" href="profile.php"><i class="las la-user-circle"></i>Edit Profile</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="logout.php">Log Out</a>
+<a class="nav-link" href="logout.php"><i class="las la-sign-out-alt"></i>Log Out</a>
 </li>
 _LOGGEDIN;
 } else {
     echo <<<_GUEST
 
 <li class="nav-item">
-<a class="nav-link" href="signup.php">Sign Up</a>
+<a class="nav-link" href="signup.php"><i class="las la-user-plus"></i>Sign Up</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="login.php">Log In</a>
+<a class="nav-link" href="login.php"><i class="las la-sign-in-alt"></i>Log In</a>
 </li>
 
 
