@@ -41,7 +41,6 @@ if (isset($_POST['user'])) {
 }
 
 echo <<<_END
-<div class="row justify-content-center">
 <div class="login">
     <h1>LOGIN</h1><hr>
     <form method='post' action='login.php'>
@@ -54,7 +53,7 @@ echo <<<_END
             <input type="password" class="form-control" name="pass" value="$pass">
         </div>
         <div class="form-group">
-            <div class="g-recaptcha" data-sitekey="6Lfm6t8UAAAAAPGoonYnz7Rmpmq5nOXibNfREfT6">
+            <div class="g-recaptcha" id="captcha" data-sitekey="6Lfm6t8UAAAAAPGoonYnz7Rmpmq5nOXibNfREfT6" >
         </div>
         <div class="form-group">
             <span class="error">$error</span>
@@ -62,7 +61,6 @@ echo <<<_END
         <button class="btn btn-primary btn-block">Login</button>
     </form>
 </div>  
-</div>
 _END;
 
 echo "</div>"; // penutup tag div container

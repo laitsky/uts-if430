@@ -28,11 +28,10 @@ body{
 }
 
 .login{
-    max-width: 350px;
-    position: absolute;
-    border: #fff solid 1px;
+    max-width: 300px;
+    border: #CCC solid 1px;
     background: #f9f9f9;
-    padding: 20px;
+    padding: 1em;
     margin: 3em auto;
 }
 
@@ -42,7 +41,10 @@ body{
 }
 
 #captcha{
-    width: 100% !important;
+    transform:scale(0.87) !important;
+    -webkit-transform:scale(0.87) !important;
+    transform-origin:0 0 !important;
+    -webkit-transform-origin:0 0 !important;
 }
 .error{
     color: rgb(212, 37, 37);
