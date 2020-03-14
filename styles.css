@@ -27,41 +27,37 @@ body{
     100% { background-color: #85f5b4; }
 }
 
-.navbar ul li a:hover {
-    background-color: #b2c5e9;
-    border-radius: 10%;
-}
 .login{
-    width: 31%;
-    border: #CCC solid 1px;
+    max-width: 350px;
+    position: absolute;
+    border: #fff solid 1px;
     background: #f9f9f9;
-    padding: 1em;
+    padding: 20px;
     margin: 3em auto;
-    font-size: 1.2vw;
 }
 
 .login h1{
-    font-size: 3vw;
     color: rgb(28, 86, 119);
     text-align: center;
 }
 
+#captcha{
+    width: 100% !important;
+}
 .error{
     color: rgb(212, 37, 37);
     text-align: center;
 }
 
 .signUp{
-    width: 35%;
+    max-width: 500px;
     border: #CCC solid 1px;
     background: #f9f9f9;
     padding: 1em;
     margin: 2em auto;
-    font-size: 1.2vw;
 }
 
 .signUp h1{
-    font-size: 3vw;
     color: rgb(28, 86, 119);
     text-align: center;
 }
