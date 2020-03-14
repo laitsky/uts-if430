@@ -52,7 +52,7 @@ echo <<<_END
             <input type="password" class="form-control" name="pass">
         </div>
         <div class="form-group">
-            <div class="g-recaptcha" data-sitekey="6Lfm6t8UAAAAAPGoonYnz7Rmpmq5nOXibNfREfT6">
+            <div class="g-recaptcha" id="captcha" data-sitekey="6Lfm6t8UAAAAAPGoonYnz7Rmpmq5nOXibNfREfT6" >
         </div>
         <div class="form-group">
             <span class="error">$error</span>
