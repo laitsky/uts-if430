@@ -4,9 +4,9 @@ require_once 'header.php';
 echo "<div class='container'>";
 if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses halaman ini!</h1></div>");
 
-  $users = $_POST['user'];
-  $result = query_my_sql("SELECT * FROM members WHERE user='$users'");
-  
+  $users = $_SESSION['user'];
+  $result = mysqli_fetch_assoc(query_my_sql("SELECT * FROM members WHERE user='$users'"));
+
 
       if(isset($_POST['update_profile'])){
         $first_name = sanitize_string($_POST['first_name']);
@@ -24,14 +24,13 @@ if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses hal
         gender = '$gender',
         pass = '$pass'");
       }
-
-echo <<<_END
+      ?>
 <div class="editProfile">
     <form action="editProfile.php" method="post">
     <div class="form-group">
     <label for="user">Username</label>
-    <input type="hidden" class="form-control" name="users" value="$result['user']">
-    <input type="text" class="form-control" name="user" value="$result['user']">
+    <input type="hidden" class="form-control" name="users" value="<?php echo $result['user']; ?>">
+    <input type="text" class="form-control" name="user" value="<?php echo $result['user']; ?>">
     <div id="used">&nbsp;</div>
     </div>
     <div class="form-group">
@@ -61,6 +60,7 @@ echo <<<_END
     <button class="btn btn-primary btn-block" name="update_profile">Update Profile</button>
     </form>
 </div>
-_END;
 
+<?php
 echo "</div>"; // penutup tag div container
+?>
