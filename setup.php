@@ -32,7 +32,7 @@ create_table('friends',
                     INDEX(friend(6))');
 create_table('profiles',
                     'user VARCHAR(16),
-                    text VARCHAR(4096),
+                    textphoto BLOB(4096),
                     INDEX(user(6))');
 ?>
 <br><p>Selesai</p>

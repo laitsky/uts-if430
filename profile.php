@@ -7,24 +7,24 @@ echo "<h3>Profil Kamu</h3>";
 
 $result = query_my_sql("SELECT * FROM profiles WHERE user='$user'");
 
-if (isset($_POST['text'])) {
-    $text = sanitize_string($_POST['text']);
+if (isset($_POST['textphoto'])) {
+    $text = sanitize_string($_POST['textphoto']);
     $text = preg_replace('/\s\s+/', ' ', $text);
 
     if ($result->num_rows)
-        query_my_sql("UPDATE profiles SET text='$text' WHERE user='$user'");
-    else query_my_sql("INSERT INTO profiles VALUES('$user', $'text')");
+        query_my_sql("UPDATE profiles SET textphoto ='$text' WHERE user='$user'");
+    else query_my_sql("INSERT INTO profiles VALUES('$user', '$text')");
 } else {
     if ($result->num_rows) {
         $row = $result->fetch_array(MYSQLI_ASSOC);
-        $text = stripslashes($row['text']);
+        $text = stripslashes($row['textphoto']);
     } else $text = "";
 }
 
 $text = stripslashes(preg_replace('/\s\s+/', ' ', $text));
 
 if (isset($_FILES['image']['name'])) {
-    $saveto = "$user.jpg";
+    $saveto = "assets/images/". "$user.jpg";
     move_uploaded_file($_FILES['image']['tmp_name'], $saveto);
     $typeok = TRUE;
 
@@ -71,12 +71,12 @@ if (isset($_FILES['image']['name'])) {
     }
 }
 
-show_profile($user);
+show_profile("assets/images/".$user);
 
 echo <<<_END
 <form method='post' action='profile.php' enctype='multipart/form-data'>
 <h3>Masukkan atau sunting profil kamu dan gambar unggah gambar profil</h3>
-<textarea name="text">$text</textarea> <br>
+<textarea name="textphoto">$text</textarea> <br>
 Gambar: <input type="file" name="image" size="14">
 <button class="btn btn-primary">Simpan Profil</button>
 </form>
