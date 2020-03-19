@@ -1,4 +1,5 @@
 <?php
+require_once 'messages.php';
 if(isset($_POST['submit'])){
     session_start();
         $id = mysqli_real_escape_string($conn,$_POST['Post_id']);
