@@ -7,7 +7,7 @@ if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses hal
 if (isset($_GET['view'])) $view = sanitize_string($_GET['view']);
 else                      $view = $user;
 
-if (isset($_POST['text']))
+if (isset($_POST['text']))  
 {
     $text = sanitize_string($_POST['text']);
 
@@ -33,7 +33,6 @@ if ($view != "")
     show_profile($view);
 
     echo <<<_END
-    <div style="padding-left:1px;">
       <form method='post' action='messages.php?view=$view'>
         <fieldset >
           <legend>Type here to leave a message</legend>
@@ -42,10 +41,9 @@ if ($view != "")
           <input type='radio' name='pm' id='private' value='1'>
           <label for="private">Private</label>
         </fieldset>
-      <textarea name='text' style="padding-left:600px; padding-bottom:100px;"></textarea><br>
-      <input style="margin-left:660px;" type='submit' value='Post Message'>
+      <textarea name='text'></textarea>
+      <input type='submit' value='Post Message'>
     </form><br>
-    </div>
 _END;
 
     date_default_timezone_set('UTC');
@@ -80,9 +78,20 @@ _END;
                 echo "[<a href='messages.php?view=$view" .
                     "&erase=" . $row['id'] . "'>erase</a>]";
 
+            
+
             echo "<br>";
+            echo <<<_END
+            <form method='POST' action='messages.php'>
+            Comment here : <br>
+            <textarea href='message.php?view=$view'  > </textarea><br>
+            <input type='submit' id='comment' value='post'  ><br>
+            </form>
+            _END;
+
         }
     }
+
 }
 
 if (!$num)
