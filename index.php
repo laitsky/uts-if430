@@ -1,9 +1,10 @@
 <?php
 require_once 'header.php';
-echo "<div class='container'>";
+echo "<div class='container text-center' id='index-body'>";
 echo "<div>Selamat datang di projek UTS PemWeb,";
 if($loggedin) {
     ?>
+    <link rel="stylesheet" href="css/index.css">    
     <?php echo $user?>, kamu telah masuk
 <?php
 }
