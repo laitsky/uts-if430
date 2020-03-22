@@ -44,14 +44,14 @@ function sanitize_string($var)
 function show_profile($user)
 {
     if (file_exists("$user.jpg"))
-        echo "<img src='$user.jpg' style='float:left;'>";
+        echo "<img src='$user.jpg' style='float:left;'><br><br><br><br><br>";
 
     $result = query_my_sql("SELECT * FROM profiles WHERE user='$user'");
 
     if ($result->num_rows) {
         $row = $result->fetch_array(MYSQLI_ASSOC);
-        echo stripslashes($row['text']) . "<br style='clear:left;'><br>";
-    } else echo "<p>Nothing to see here, yet</p><br>";
+        echo stripslashes($row['textphoto']) . "<br style='clear:left;'><br>";
+    }
 }
 
 ?>
