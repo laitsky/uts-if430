@@ -55,7 +55,7 @@ if ($loggedin) {
 <a class="nav-link" href="messages.php"><i class="las la-stream"></i>Lini Masa</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="profile.php"><i class="las la-user-circle"></i>Edit Profile</a>
+<a class="nav-link" href="editProfile.php"><i class="las la-user-circle"></i>Edit Profile</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="logout.php"><i class="las la-sign-out-alt"></i>Log Out</a>

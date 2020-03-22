@@ -43,8 +43,11 @@ function sanitize_string($var)
 
 function show_profile($user)
 {
-    if (file_exists("$user.jpg"))
-        echo "<img src='$user.jpg' style='float:left;'><br><br><br><br><br>";
+    if (file_exists("$user.jpg")) {
+        echo "<img src='$user.jpg' style='float:left;'><br><br><br><br><br><br>";
+    } else {
+        echo "<img src='assets/images/placeholder.jpg' style='float:left;' width='140'><br><br><br><br><br><br><br>";
+    }
 
     $result = query_my_sql("SELECT * FROM profiles WHERE user='$user'");
 
