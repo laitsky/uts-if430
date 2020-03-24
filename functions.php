@@ -4,6 +4,13 @@ $dbname = 'media_sosial_db';
 $dbuser = 'root';
 $dbpass = '';
 
+/*
+$dbhost = 'localhost';
+$dbname = 'id12849632_sosial_media_db';
+$dbuser = 'id12849632_sosmed';
+$dbpass = 'blackberry123';
+*/
+
 $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 if ($connection->connect_error) die("Fatal Error");
 
