@@ -13,6 +13,7 @@ if (isset($_POST['textphoto'])) {
 
     if ($result->num_rows)
         query_my_sql("UPDATE profiles SET textphoto ='$text' WHERE user='$user'");
+
     else query_my_sql("INSERT INTO profiles VALUES('$user', '$text')");
 } else {
     if ($result->num_rows) {
