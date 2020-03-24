@@ -13,7 +13,6 @@ echo <<<_INIT
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
 _INIT;
 
 require_once 'functions.php';
@@ -41,7 +40,6 @@ _MAIN;
 
 if ($loggedin) {
     echo <<<_LOGGEDIN
-
 <li class="nav-item">
 <a class="nav-link" href="members.php?view=$user"><i class="las la-home"></i>Home</a>
 </li>
@@ -55,7 +53,7 @@ if ($loggedin) {
 <a class="nav-link" href="messages.php"><i class="las la-stream"></i>Lini Masa</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="profile.php"><i class="las la-user-circle"></i>Edit Profile</a>
+<a class="nav-link" href="editProfile.php"><i class="las la-user-circle"></i>Edit Profile</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="logout.php"><i class="las la-sign-out-alt"></i>Log Out</a>
@@ -63,15 +61,12 @@ if ($loggedin) {
 _LOGGEDIN;
 } else {
     echo <<<_GUEST
-
 <li class="nav-item">
 <a class="nav-link" href="signup.php"><i class="las la-user-plus"></i>Sign Up</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="login.php"><i class="las la-sign-in-alt"></i>Log In</a>
 </li>
-
-
 _GUEST;
 
 }
