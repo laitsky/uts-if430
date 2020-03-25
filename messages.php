@@ -7,7 +7,7 @@ if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses hal
 if (isset($_GET['view'])) $view = sanitize_string($_GET['view']);
 else                      $view = $user;
 
-if (isset($_POST['text']))
+if (isset($_POST['text']))  
 {
     $text = sanitize_string($_POST['text']);
 
@@ -78,13 +78,54 @@ _END;
                 echo "[<a href='messages.php?view=$view" .
                     "&erase=" . $row['id'] . "'>erase</a>]";
 
+            
+            for ($j = 0 ; $j < $num ; ++$j) {    
             echo "<br>";
+            
+            echo <<<_END
+            <form method='POST' action='messages.php?view=$view'>
+            Comment here : <br>
+            <textarea href='message.php'  name='comment'> </textarea><br>
+            <input type='submit'  value='post'  ><br>
+            </form>
+
+            _END;
+
+            session_start();
+            include 'function.php';
+            $q2 = "INSERT INTO comment (id, comment, commenter) VALUES (NULL,'".$_POST['comment']."', '$user')";
+            $komen = mysqli_escape_string($connection,$_POST['comment']);
+            $result = $connection->query($q2);
+
+
+            $qcomment = "SELECT * FROM comment   ";
+            $result2 = $connection->query($qcomment);
+            foreach ($result2 as $kolom){
+                $id = $kolom['id'];
+                $comment = $kolom['comment'];
+                $commenter = $kolom['commenter'];
+            }
+             echo "Comment : '".$comment."' "; 
+
+         }
+            /*
+                buat tabel baru namanya comment
+                Valuesnya id, comment, commenter
+            */
+            
         }
+            
     }
+
+
+             
+    
 }
+
 
 if (!$num)
     echo "<br><span class='info'>No messages yet</span><br><br>";
 
 echo "<br><a href='messages.php?view=$view'>Refresh messages</a>";
 echo "</div>"; // penutup tag div container
+
