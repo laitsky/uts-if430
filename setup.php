@@ -32,8 +32,13 @@ create_table('friends',
                     INDEX(friend(6))');
 create_table('profiles',
                     'user VARCHAR(16),
-                    text VARCHAR(4096),
+                    textphoto BLOB(4096),
                     INDEX(user(6))');
+
+create_table('comment',
+                    'id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY ,
+	    comment VARCHAR(4000),
+	    commenter VARCHAR(4000)  ');
 ?>
 <br><p>Selesai</p>
 </body>
