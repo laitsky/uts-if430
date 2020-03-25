@@ -89,36 +89,37 @@ if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses hal
     }
   }
 ?>
-<h1>Edit Profile</h1><hr>
+<br>
+<h1 style="text-align: center">Edit Profile</h1><hr>
     <?php if(isset($valid)&&$valid){ ?>
     <div class="alert alert-primary" role="alert">Profile telah berhasil diperbarui !</div>
     <?php } ?>
     <form action="editProfile.php" method="post" enctype="multipart/form-data">
-        <div class="form-group">
+        <div class="form-group col-sm-6" style="margin: auto; padding-bottom: 15px">
             <label for="image" >Foto Profil</label><br>
             <?php show_profile($user); ?>
             <h6>Upload different photo</h6>
             <textarea name="textphoto"></textarea><br>
             <input type="file" name="image" size="14">
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6" style="margin: auto; padding-bottom: 15px">
             <label for="user">Username</label>
             <input type="hidden" class="form-control" name="user" value="<?php echo $result['user']; ?>">
             <input type="text" class="form-control" name="user" value="<?php echo $result['user']; ?>"disabled>
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6" style="margin: auto; padding-bottom: 15px">
             <label for="first_name" >Nama Depan</label>
             <input type="text" class="form-control" name="first_name" value="<?php echo $result['first_name']; ?>" maxlength="20">
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6" style="margin: auto; padding-bottom: 15px">
             <label for="last_name">Nama Belakang (opsional)</label>
             <input type="text" class="form-control" name="last_name" value="<?php echo $result['last_name']; ?>" maxlength="20">
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6" style="margin: auto; padding-bottom: 15px">
             <label for="birth_date">Tanggal Lahir</label>
             <input type="date" class="form-control" name="birth_date" value="<?php echo $result['birth_date']; ?>">
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6" style="margin: auto; padding-bottom: 15px">
             <label for="gender">Jenis Kelamin</label>
             <select name="gender" class="custom-select" >
             <option selected  value="<?php echo $result['gender']; ?>"><?php if($result['gender'] == "P"){echo "Perempuan";}else {echo "Laki-laki";} ?></option>
@@ -126,7 +127,10 @@ if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses hal
             <option value="P">Perempuan</option>
             </select>
         </div>
-        <button class="btn btn-primary btn-block" name="update_profile">Update Profile</button>
+        <div class="col-sm-6" style="margin: auto; padding-top: 8px">
+            <button class="btn btn-primary" name="update_profile">Update Profile</button>
+            <br><br>
+        </div>
     </form> 
 
 <?php
