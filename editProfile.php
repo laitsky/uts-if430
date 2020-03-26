@@ -128,7 +128,7 @@ if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses hal
             </select>
         </div>
         <div class="col-sm-6" style="margin: auto; padding-top: 8px">
-            <button class="btn btn-primary" name="update_profile">Update Profile</button>
+            <button class="btn btn-primary btn-block" name="update_profile">Update Profile</button>
             <br><br>
         </div>
     </form> 

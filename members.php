@@ -18,7 +18,7 @@ if (isset($_GET['view'])) {
     echo "<h6 align='center'><i class='las la-user'></i>". $result['user']. "</h6>";
     echo "<h6 align='center'><i class='las la-birthday-cake'></i>". $result['birth_date']. "</h6>";
     echo "</div>";
-    echo "<a href='messages.php?view=$view' class='btn btn-primary'>Lihat pesan</a>";
+    echo "<a href='messages.php?view=$view' class='btn btn-primary btn-block'>Lihat pesan</a>";
 }
 
 if (isset($_GET['add'])) {
