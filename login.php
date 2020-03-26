@@ -38,29 +38,37 @@ if (isset($_POST['user'])) {
         }
     }
 }
-
-echo <<<_END
-<div class="login">
-    <h1>LOGIN</h1><hr>
-    <form method='post' action='login.php'>
-        <div class="form-group">
-            <label for="user">Username</label>
-            <input type="text" class="form-control" name="user" value="$user">
-        </div>
-        <div class="form-group">
-            <label for="pass">Password</label>
-            <input type="password" class="form-control" name="pass">
-        </div>
-        <div class="form-group">
-            <div class="g-recaptcha" id="captcha" data-sitekey="6Lfm6t8UAAAAAPGoonYnz7Rmpmq5nOXibNfREfT6" >
-        </div>
-        <div class="form-group">
-            <span class="error">$error</span>
-        </div>
-        <button class="btn btn-primary btn-block">Login</button>
-    </form>
-</div>  
-_END;
-
-echo "</div>"; // penutup tag div container
 ?>
+
+<div class="row">
+    <div class="col-md-6 text-center pt-5">
+        <h2>Masuk ke Sosial Media</h2>
+        <h4>Mari berinteraksi dengan sesama.</h4>
+        <img src="assets/login.svg" class="img-fluid pt-5" alt="login" style="height: 400px; width: auto;">
+    </div>
+    <div class="col-md-6 pt-5">
+        <div class="card card-container my-5 form-placing">
+            <h6 class="text-center mt-3">Masuk dengan akun identifikasi kamu.<hr></h6>
+            <form method='post' action='login.php'>
+                <div class="form-group">
+                    <label for="user">Username</label>
+                    <input type="text" class="form-control" name="user">
+                </div>
+                <div class="form-group">
+                    <label for="pass">Password</label>
+                    <input type="password" class="form-control" name="pass">
+                </div>
+                <div class="form-group">
+                    <div class="g-recaptcha" id="captcha" data-sitekey="6Lfm6t8UAAAAAPGoonYnz7Rmpmq5nOXibNfREfT6" >
+                    </div>
+                    <div class="form-group">
+                        <span class="error"><?php echo $error; ?></span>
+                    </div>
+                    <button class="btn btn-primary btn-block">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</div> <!-- penutup tag div container -->

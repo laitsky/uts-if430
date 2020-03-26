@@ -58,9 +58,15 @@ if (isset($_POST['user'])) {
     }
 }
 echo <<<_END
-<div class="signUp">
-  <h1>SIGN UP</h1>
-  <hr>
+<div class='row'>
+<div class='col-md-6 text-center pt-5'>
+<h2>Daftar ke Sosial Media</h2>
+<h4>Mari bergabung dengan kami.</h4>
+<img src="assets/register.svg" class="img-fluid pt-5" alt="register" style="height: 400px; width: auto;">
+</div>
+<div class="col-md-6 pt-5">
+<div class="card card-container form-placing">
+<h6 class="text-center mt-3">Lengkapi data diri kamu.<hr></h6>
   <form method='post' action='signup.php'>
   <div class="form-group">
   <label for="first_name" >Nama Depan</label>
@@ -73,7 +79,6 @@ echo <<<_END
   <div class="form-group">
   <label for="user">Username</label>
   <input type="text" class="form-control" name="user" value="$user" onblur="checkUser(this)" maxlength="16">
-  <div id="used">&nbsp;</div>
   </div>
   <div class="form-group">
   <label for="birth_date">Tanggal Lahir</label>
@@ -94,6 +99,8 @@ echo <<<_END
   <div class="error">$error</div>
   <button class="btn btn-primary btn-block">Daftar</button>
   </form>
+</div>
+</div>
 </div>
 _END;
 
