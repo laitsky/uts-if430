@@ -7,24 +7,20 @@ if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses hal
 if (isset($_GET['view'])) $view = sanitize_string($_GET['view']);
 else                      $view = $user;
 
-if (isset($_POST['text']))  
-{
+if (isset($_POST['text'])) {
     $text = sanitize_string($_POST['text']);
 
-    if ($text != "")
-    {
-        $pm   = substr(sanitize_string($_POST['pm']),0,1);
+    if ($text != "") {
+        $pm = substr(sanitize_string($_POST['pm']), 0, 1);
         $time = time();
         query_my_sql("INSERT INTO messages VALUES(NULL, '$user',
         '$view', '$pm', $time, '$text')");
     }
 }
 
-if ($view != "")
-{
+if ($view != "") {
     if ($view == $user) $name1 = $name2 = "Your";
-    else
-    {
+    else {
         $name1 = "<a href='members.php?view=$view'>$view</a>'s";
         $name2 = "$view's";
     }
@@ -48,41 +44,38 @@ _END;
 
     date_default_timezone_set('UTC');
 
-    if (isset($_GET['erase']))
-    {
+    if (isset($_GET['erase'])) {
         $erase = sanitize_string($_GET['erase']);
         query_my_sql("DELETE FROM messages WHERE id=$erase AND recip='$user'");
     }
 
-    $query  = "SELECT * FROM messages WHERE recip='$view' ORDER BY time DESC";
+    $query = "SELECT * FROM messages WHERE recip='$view' ORDER BY time DESC";
     $result = query_my_sql($query);
-    $num    = $result->num_rows;
+    $num = $result->num_rows;
 
-    for ($j = 0 ; $j < $num ; ++$j)
-    {
+    for ($j = 0; $j < $num; ++$j) {
         $row = $result->fetch_array(MYSQLI_ASSOC);
 
-        if ($row['pm'] == 0 || $row['auth'] == $user || $row['recip'] == $user)
-        {
+        if ($row['pm'] == 0 || $row['auth'] == $user || $row['recip'] == $user) {
             echo date('M jS \'y g:ia:', $row['time']);
             echo " <a href='messages.php?view=" . $row['auth'] .
-                "'>" . $row['auth']. "</a> ";
+                "'>" . $row['auth'] . "</a> ";
 
             if ($row['pm'] == 0)
                 echo "wrote: &quot;" . $row['message'] . "&quot; ";
             else
                 echo "whispered: <span class='whisper'>&quot;" .
-                    $row['message']. "&quot;</span> ";
+                    $row['message'] . "&quot;</span> ";
 
             if ($row['recip'] == $user)
                 echo "[<a href='messages.php?view=$view" .
                     "&erase=" . $row['id'] . "'>erase</a>]";
 
-            
-            for ($j = 0 ; $j < $num ; ++$j) {    
-            echo "<br>";
-            
-            echo <<<_END
+
+            for ($j = 0; $j < $num; ++$j) {
+                echo "<br>";
+
+                echo <<<_END
             <form method='POST' action='messages.php?view=$view'>
             Comment here : <br>
             <textarea href='message.php'  name='comment'> </textarea><br>
@@ -90,27 +83,23 @@ _END;
             </form>
 _END;
 
-            $q2 = "INSERT INTO comment (id, comment, commenter) VALUES (NULL,'".$_POST['comment']."', '$user')";
-            $komen = mysqli_escape_string($connection,$_POST['comment']);
-            $result = $connection->query($q2);
+                $q2 = "INSERT INTO comment (id, comment, commenter) VALUES (NULL,'" . $_POST['comment'] . "', '$user')";
+                $komen = mysqli_escape_string($connection, $_POST['comment']);
+                $result = $connection->query($q2);
 
 
-            $qcomment = "SELECT * FROM comment   ";
-            $result2 = $connection->query($qcomment);
-            foreach ($result2 as $kolom){
-                $id = $kolom['id'];
-                $comment = $kolom['comment'];
-                $commenter = $kolom['commenter'];
-                 }
-             echo "Comment : '".$comment."' "; 
+                $qcomment = "SELECT * FROM comment   ";
+                $result2 = $connection->query($qcomment);
+                foreach ($result2 as $kolom) {
+                    $id = $kolom['id'];
+                    $comment = $kolom['comment'];
+                    $commenter = $kolom['commenter'];
+                }
+                echo "Comment : '" . $comment . "' ";
 
             }
-            
-            
         }
-            
-    }            
-    
+    }
 }
 
 
