@@ -14,8 +14,9 @@ if (isset($_GET['view'])) {
     echo "<div class='center'>";
     echo "<h3>Profil $name</h3>";
     show_profile($view);
-    echo "<h5 align='center'>". $result['user']. "</h5>";
-    echo "<h6 align='center'>". $result['first_name'] . " " . $result['last_name'] . "</h6>";
+    echo "<h5 align='center'>". $result['first_name'] . " " . $result['last_name'] . "</h5>";
+    echo "<h6 align='center'><i class='las la-user'></i>". $result['user']. "</h6>";
+    echo "<h6 align='center'><i class='las la-birthday-cake'></i>". $result['birth_date']. "</h6>";
     echo "</div>";
     echo "<a href='messages.php?view=$view' class='btn btn-primary'>Lihat pesan</a>";
 }
