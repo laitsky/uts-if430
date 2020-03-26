@@ -2,78 +2,25 @@
 require_once 'header.php';
 echo "<div class='container'>";
 if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses halaman ini!</h1></div>");
-
-if(isset($_GET['view'])) $view = sanitize_string($_GET['view']);
-else $view = $user;
-
-if ($view == $user)
-{
-    $name1 = $name2 = "Your";
-    $name3 = "You are";
-}
-else
-{
-    $name1 = "<a href='members.php?view=$view'>$view</a>'s";
-    $name2 = "$view's";
-    $name3 = "$view is";
-}
-
-
-$followers = array();
-$following = array();
-
-$result = query_my_sql("SELECT * FROM friends WHERE user='$view'");
+$result = query_my_sql("SELECT user FROM members ORDER BY user");
 $num = $result->num_rows;
 
-for($i=0; $i<0; ++$i)
-{
+for ($i = 0; $i < $num; ++$i) {
     $row = $result->fetch_array(MYSQLI_ASSOC);
-    $followers[$i] = $row['friend'];
+    if ($row['user'] == $user) continue;
+
+
+
+    $result1 = query_my_sql("SELECT * FROM friends WHERE user='" . $row['user'] . "' AND friend='$user'");
+    $t1 = $result1->num_rows;
+    $result1 = query_my_sql("SELECT * FROM friends WHERE user='$user' AND friend='" . $row['user'] . "'");
+    $t2 = $result1->num_rows;
+
+    if (($t1 + $t2) > 1) {
+        echo "<li><a  href='members.php?view=" . $row['user'] . "'>" . $row['user'] . "</a>";
+        echo " &harr; kamu berteman";
+        echo "<br>";
+    }
 }
-
-$result = query_my_sql("SELECT * FROM friends WHERE friend='$view'");
-$num = $result->num_rows;
-
-for($i=0; $i<0; ++$i)
-{
-    $row = $result->fetch_array(MYSQLI_ASSOC);
-    $following[$i] = $row['user'];
-}
-
-$mutual = array_intersect($followers, $following);
-$followers = array_diff($followers, $mutual);
-$following = array_diff($following, $mutual);
-$friends = FALSE;
-
-echo "<br>";
-
-if (sizeof($mutual))
-{
-    echo "<span >$name2 mutual friends</span><ul>";
-    foreach($mutual as $friend)
-        echo "<li><a href='members.php?view=$friend'>$friend</a>";
-    echo "</ul>";
-    $friends = TRUE;
-}
-
-if (sizeof($followers))
-{
-    echo "<span>$name2 followers</span><ul>";
-    foreach($followers as $friend)
-        echo "<li><a href='members.php?view=$friend'>$friend</a>";
-    echo "</ul>";
-    $friends = TRUE;
-}
-
-if (sizeof($following))
-{
-    echo "<span>$name3 following</span><ul>";
-    foreach($following as $friend)
-        echo "<li><a href='members.php?view=$friend'>$friend</a>";
-    echo "</ul>";
-    $friends = TRUE;
-}
-
-if (!$friends) echo "<br>Kamu belum memiliki teman!";
 
 echo "</div>"; // penutup tag div container

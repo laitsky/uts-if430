@@ -5,12 +5,12 @@ if (!$loggedin) die("<div class='text-center'><h1>Kamu tidak dapat mengakses hal
 
 if (isset($_GET['view'])) {
     $view = sanitize_string($_GET['view']);
-    if ($view == $user) $name = "Your";
+    if ($view == $user) $name = "Kamu";
     else $name = "$view's";
 
     echo "<h3>Profil $name</h3>";
-    show_profile($view);
-    echo "<button><a href='messages.php?view=$view'>Lihat pesan</a></button>";
+    show_profile("assets/images/".$view);
+    echo "<a href='messages.php?view=$view' class='btn btn-primary'>Lihat pesan</a>";
 }
 
 if (isset($_GET['add'])) {
@@ -29,6 +29,7 @@ $num = $result->num_rows;
 
 echo "<h3>Anggota lainnya</h3><ul>";
 for ($i = 0; $i < $num; ++$i) {
+    echo "<div class='card py-3 my-3'>";
     $row = $result->fetch_array(MYSQLI_ASSOC);
     if ($row['user'] == $user) continue;
 
@@ -40,18 +41,20 @@ for ($i = 0; $i < $num; ++$i) {
     $result1 = query_my_sql("SELECT * FROM friends WHERE user='$user' AND friend='" . $row['user'] . "'");
     $t2 = $result1->num_rows;
 
-    if (($t1 + $t2) > 1) echo " &harr; is a mutual friend";
-    elseif ($t1) echo " &larr; you are following";
+    if (($t1 + $t2) > 1) echo " &harr; kamu saling mengikuti";
+    elseif ($t1) echo " &larr; kamu mengikuti";
     elseif ($t2) {
-        echo " &rarr; is following you";
+        echo " &rarr; kamu diikuti";
         $follow = "recip";
     }
 
     if (!$t1) echo " [<a href='members.php?add=" . $row['user'] . "'>$follow</a>]";
     else      echo " [<a href='members.php?remove=" . $row['user'] . "'>drop</a>]";
 
-
+    echo "</div>";
 }
+
 echo "</ul>";
 
 echo "</div>"; // penutup tag div container
+?>
