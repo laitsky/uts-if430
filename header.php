@@ -29,8 +29,8 @@ echo <<<_MAIN
 <title>UTS PemWeb IF430 - $userstr </title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<a class="navbar-brand" href="index.php">Sosial Media</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3">
+<a class="navbar-brand" href="index.php" style="text-transform: uppercase; letter-spacing: 4px; font-size: 16px;">Sosial Media</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>
@@ -41,31 +41,34 @@ _MAIN;
 if ($loggedin) {
     echo <<<_LOGGEDIN
 <li class="nav-item">
-<a class="nav-link" href="members.php?view=$user"><i class="las la-home"></i>Home</a>
+<a class="nav-link font-weight-bold" href="members.php?view=$user"><i class="las la-home"></i>Beranda</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="members.php"><i class="las la-users"></i>Members</a>
+<a class="nav-link font-weight-bold" href="members.php"><i class="las la-users"></i>Anggota</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="friends.php"><i class="las la-user-friends"></i>Friends</a>
+<a class="nav-link font-weight-bold" href="friends.php"><i class="las la-user-friends"></i>Teman</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="messages.php"><i class="las la-stream"></i>Lini Masa</a>
+<a class="nav-link font-weight-bold" href="messages.php"><i class="las la-stream"></i>Lini Masa</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="editProfile.php"><i class="las la-user-circle"></i>Edit Profile</a>
+<a class="nav-link font-weight-bold" href="editProfile.php"><i class="las la-user-circle"></i>Edit Profile</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="logout.php"><i class="las la-sign-out-alt"></i>Log Out</a>
+<a class="nav-link font-weight-bold" href="profil_kelompok.php"><i class="las la-address-card"></i>Profil Kelompok</a>
+</li>
+<li class="nav-item">
+<a class="nav-link font-weight-bold" href="logout.php"><i class="las la-sign-out-alt"></i>Log Out</a>
 </li>
 _LOGGEDIN;
 } else {
     echo <<<_GUEST
 <li class="nav-item">
-<a class="nav-link" href="signup.php"><i class="las la-user-plus"></i>Sign Up</a>
+<a class="nav-link font-weight-bold" href="signup.php"><i class="las la-user-plus"></i>Daftar</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="login.php"><i class="las la-sign-in-alt"></i>Log In</a>
+<a class="nav-link font-weight-bold" href="login.php"><i class="las la-sign-in-alt"></i>Masuk</a>
 </li>
 _GUEST;
 
