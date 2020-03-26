@@ -25,7 +25,7 @@ if ($view != "") {
         $name2 = "$view's";
     }
 
-    echo "<h3>$name1 Messages</h3>";
+    echo "<h3>$name1 Timeline</h3>";
     show_profile($view);
 
     echo <<<_END
@@ -38,7 +38,7 @@ if ($view != "") {
           <label for="private">Private</label>
         </fieldset>
       <textarea name='text'></textarea>
-      <input type='submit' value='Post Message'>
+      <input type='submit' value='Post Message' class='btn btn-primary'>
     </form><br>
 _END;
 
@@ -79,7 +79,7 @@ _END;
             <form method='POST' action='messages.php?view=$view'>
             Comment here : <br>
             <textarea href='message.php'  name='comment'> </textarea><br>
-            <input type='submit'  value='post'  ><br>
+            <input type='submit'  value='Post' class='btn btn-primary'><br>
             </form>
 _END;
 
