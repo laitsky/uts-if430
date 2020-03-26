@@ -44,13 +44,13 @@ if ($loggedin) {
 <a class="nav-link font-weight-bold" href="members.php?view=$user"><i class="las la-home"></i>Beranda</a>
 </li>
 <li class="nav-item">
+<a class="nav-link font-weight-bold" href="messages.php"><i class="las la-stream"></i>Timeline</a>
+</li>
+<li class="nav-item">
 <a class="nav-link font-weight-bold" href="members.php"><i class="las la-users"></i>Anggota</a>
 </li>
 <li class="nav-item">
 <a class="nav-link font-weight-bold" href="friends.php"><i class="las la-user-friends"></i>Teman</a>
-</li>
-<li class="nav-item">
-<a class="nav-link font-weight-bold" href="messages.php"><i class="las la-stream"></i>Lini Masa</a>
 </li>
 <li class="nav-item">
 <a class="nav-link font-weight-bold" href="editProfile.php"><i class="las la-user-circle"></i>Edit Profile</a>
