@@ -9,7 +9,7 @@ if (isset($_GET['view'])) {
     else $name = "$view's";
 
     echo "<h3>Profil $name</h3>";
-    show_profile("assets/images/".$view);
+    show_profile($view);
     echo "<a href='messages.php?view=$view' class='btn btn-primary'>Lihat pesan</a>";
 }
 
