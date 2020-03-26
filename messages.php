@@ -88,11 +88,8 @@ _END;
             <textarea href='message.php'  name='comment'> </textarea><br>
             <input type='submit'  value='post'  ><br>
             </form>
+_END;
 
-            _END;
-
-            session_start();
-            include 'function.php';
             $q2 = "INSERT INTO comment (id, comment, commenter) VALUES (NULL,'".$_POST['comment']."', '$user')";
             $komen = mysqli_escape_string($connection,$_POST['comment']);
             $result = $connection->query($q2);
