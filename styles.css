@@ -42,3 +42,7 @@
     text-align: -ms-center;
 }
 
+.center {
+    max-width: 200px;
+    margin: auto;
+}

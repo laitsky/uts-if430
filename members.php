@@ -8,8 +8,15 @@ if (isset($_GET['view'])) {
     if ($view == $user) $name = "Kamu";
     else $name = "$view's";
 
+    $result = mysqli_fetch_assoc(query_my_sql("SELECT * FROM members WHERE user='$view'"));
+
+
+    echo "<div class='center'>";
     echo "<h3>Profil $name</h3>";
     show_profile($view);
+    echo "<h5>". $result['user']. "</h5>";
+    echo "<h6>". $result['first_name'] . " " . $result['last_name'] . "</h6>";
+    echo "</div>";
     echo "<a href='messages.php?view=$view' class='btn btn-primary'>Lihat pesan</a>";
 }
 
