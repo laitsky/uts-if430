@@ -91,12 +91,14 @@ _END;
 
             _END;
 
+            if(isset($_POST['comment'])){
+            
+            //for ($k = 0; $k <$_POST['comment']; ++$koment ){
             session_start();
             include 'function.php';
             $q2 = "INSERT INTO comment (id, comment, commenter) VALUES (NULL,'".$_POST['comment']."', '$user')";
             $komen = mysqli_escape_string($connection,$_POST['comment']);
             $result = $connection->query($q2);
-
 
             $qcomment = "SELECT * FROM comment   ";
             $result2 = $connection->query($qcomment);
@@ -106,16 +108,17 @@ _END;
                 $commenter = $kolom['commenter'];
             }
              echo "Comment : '".$comment."' "; 
-
-         }
-            /*
-                buat tabel baru namanya comment
-                Valuesnya id, comment, commenter
-            */
+                
+            }
+                }
+              //      }
+            
+     }
+            
             
         }
             
-    }
+    
 
 
              
