@@ -42,3 +42,8 @@
     text-align: -ms-center;
 }
 
+.center {
+    max-width: 160px;
+    margin: auto;
+    align-items: center;
+}
